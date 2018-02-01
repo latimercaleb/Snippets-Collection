@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Caleb">
+	<meta name="description" content="CSON Snippet for html skeleton">
+	<meta name="keywords" content="Test File">
+	<title>VueTest</title>
+</head>
+
+<body>
+	<div id='app'>
+		<input type="text" v-on:input="changeText" />
+		<!--v-on is a directive for vue event listeners, listen to input and  call method name-->
+		<p>{{title}}</p>
+		<p v-once>{{sayHello()}}</p>
+		<!--Retains previous title because of v-once-->
+		<p>{{presentTitle()}}</p>
+		<h1>{{newTitle()}}</h1>
+		<p><a v-bind:href='help' target="_blank">Need help?</a></p>
+		<p v-html='hString'></p>
+		<button v-on:click="update">Click it?</button>
+		<span>{{mms}}</span>
+		<p v-on:mousemove="changePostion">
+			Position:{{x}}, {{y}}
+		</p>
+		<b>Two way binding</b>
+	</div>
+	<div id="exercise1">
+		<hr />
+		<h1>Exercise: Basic Vue Stuff</h1>
+		<!-- 1) Fill the <p> below with your Name and Age - using Interpolation -->
+		<p>VueJS is pretty cool - {{Intro()}}</p>
+		<!-- 2) Output your age, multiplied by 3 -->
+		<p>{{GetAge() * 3}}</p>
+		<!-- 3) Call a function to output a random float between 0 and 1 (Math.random()) between 1 & 100 bonus -->
+		<p>{{Rand()}}</p>
+		<!-- 4) Search any image on Google and output it here by binding the "src" attribute -->
+		<div>
+			<img style="width:100px;height:100px" v-bind:src='link'>
+		</div>
+		<!-- 5) Pre-Populate this input with your name (set the "value" attribute) -->
+		<div>
+			<input type="text" v-bind:value="name">
+		</div>
+	</div>
+	<div id="exercise2">
+		<hr />
+		<h1>Exercise 2: Events and stuff</h1>
+		<!-- 1) Show an alert when the Button gets clicked -->
+		<div>
+			<button v-on:click='popUp'>Show Alert</button>
+		</div>
+		<!-- 2) Listen to the "keydown" event and store the value in a data property (hint: event.target.value gives you the value) -->
+		<div>
+			<input type="text" v-on:keydown='storeValue'>
+			<p>{{ value }}</p>
+		</div>
+		<!-- 3) Adjust the example from 2) to only fire if the "key down" is the ENTER key -->
+		<div>
+			<input type="text" v-on:keydown.ENTER='storeValue2'>
+			<p>{{ value }}</p>
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<!--CDN for vuejs use, in a real project install with npm and use vue-cli, (CLI experience is very practical with react and angular so set this up on win-desktop & linux-laptop)-->
+	<script type='text/javascript'>
+		var test = new Vue({ // this is a vue instance, it's core to how vue works we can assign iit to a var as well, var foo = new Vue(...), vue does not do binding at run-time, it makes a template, stores it internally and makes modifications to it. The page that is rendered is the virtual dom presented in the page dom
+			el: '#app',
+			data: { // data stored in here can be output directly into the virtual dom with {{title}} as an example, {{}} cannot bind properties without v-bind, this data is rendered only as a plain string
+				title: "Tacocat",
+				help: "https://stackoverflow.com/",
+				hString: '<b>I am an html string</b>',
+				count: 0,
+				mms: "",
+				x: 0,
+				y: 0
+			},
+			methods: {
+				changeText: function(ev) {
+					this.title = ev.target.value;
+				},
+				sayHello: function() {
+					return "Hello!"; // return value must be a string and can be called above with () on it, it is a function afterall
+					// return title; will NOT work not without specifying data
+				},
+				presentTitle: function() {
+					return this.title; // changing title will change it in both places unless you bind one with v-once directive
+				},
+				newTitle: function() {
+					this.title = "new title";
+					return this.title;
+				},
+				update: function() {
+					this.count++;
+					if (this.count == 1) {
+						this.mms = "You poked me!"
+					} else {
+						this.mms = `You poked me ${this.count}x!`;
+					}
+				},
+				changePostion: function(e) {
+					this.x = e.clientX;
+					this.y = e.clientY;
+				}
+			}
+		});
+		// I should make a vue snippet, because boilerplate sucks
+		var ex1 = new Vue({
+			el: '#exercise1',
+			data: {
+				name: "Caleb",
+				age: 25,
+				link: 'http://www.1999.co.jp/itbig37/10376993.jpg'
+			},
+			methods: {
+				Intro: function() {
+					return `My name is ${this.name} and my age is ${this.age}`;
+				},
+				GetAge: function() {
+					return this.age;
+				},
+				Rand: function() {
+					return Math.floor(Math.random() * (100 - 1) + 1);
+				}
+			}
+		});
+		var ex2 = new Vue({
+			el: '#exercise2',
+			data: {
+				value: ""
+			},
+			methods: {
+				popUp: function() {
+					alert("click");
+				},
+				storeValue: function(e) {
+					this.value = e.target.value;
+				},
+				storeValue2: function(e) {
+					this.value = e.target.value;
+				}
+			}
+		});
+	</script>
+</body>
+
+</html>
