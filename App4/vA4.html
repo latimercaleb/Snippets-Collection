@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="author" content="Caleb">
+      <meta name="description" content="CSON Snippet for html skeleton">
+      <meta name="keywords" content="Test File">
+      <title>RvTest</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+      <div id="app">
+            <!-- 1) Start the Effect with the Button. The Effect should alternate the "highlight" or "shrink" class on each new setInterval tick (attach respective class to the div with id "effect" below) -->
+            <div>
+                  <button @click="startEffect">Start Effect</button>
+                  <div id="effect" :class="{shrink: On, highlight:!On}"></div>
+            </div>
+            <!-- 2) Create a couple of CSS classes and attach them via the array syntax -->
+            <div :class="[circleClass, fontClass]">I got no class :(</div>
+            <!-- 3) Let the user enter a class (create some example classes) and attach it -->
+            <div>
+                  <input type="text" v-model="div3">
+                  <div :class="div3"></div>
+                  <!-- </div> -->
+                  <!-- 4) Let the user enter a class and enter true/ false for another class (create some example classes) and attach the classes -->
+                  <div>
+                        <input type="text" v-model="div4">
+                        <input type="text" v-model="div4S">
+                        <div :class="[div4, {blink: div4S}]"></div>
+                  </div>
+                  <!-- 5) Repeat 3) but now with values for styles (instead of class names). Attach the respective styles.  -->
+                  <div>
+                        <input type="number" v-model="sight">
+                        <div class="square" :style="{opacity:sight}"></div>
+                  </div>
+                  <!-- 6) Create a simple progress bar with setInterval and style bindings. Start it by hitting the below button. -->
+                  <div>
+                        <button v-on:click="startProgress">Start Progress</button>
+                        <div class="bar">
+                              <div class="bar-color" :style="{width: bar}"></div>
+                        </div>
+                  </div>
+            </div>
+            <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+            <script src="script.js"></script>
+</body>
+
+</html>
