@@ -7,24 +7,10 @@
       <meta name="description" content="CSON Snippet for html skeleton">
       <meta name="keywords" content="Test File">
       <title>App 5</title>
-
+      <link rel=stylesheet href="style.css" />
 </head>
 
 <body>
-      <style>
-            .looks {
-                  background-color: pink;
-                  color: red;
-                  font-family: 'Segoe UI';
-            }
-
-            .other-looks {
-                  background-color: black;
-                  color: mediumspringgreen;
-                  font-family: 'Segoe UI';
-            }
-      </style>
-
       <div id="exercise">
             <!-- 1) Hook up the button to toggle the display of the two paragraphs. Use both v-if and v-show and inspect the elements to see the difference -->
             <div>
@@ -64,26 +50,7 @@
 
 
       <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
-      <script>
-            var app = new Vue({
-                  el: '#exercise',
-                  data: {
-                        showP1: false,
-                        custArray: [12, "tacos", 8, "cats", 1, "tacocat"],
-                        array: ['Max', 'Anna', 'Chris', 'Manu'],
-                        myObject: {
-                              title: 'Lord of the Rings',
-                              author: 'J.R.R. Tolkiens',
-                              books: '3'
-                        },
-                        testData: {
-                              name: 'TESTOBJECT',
-                              id: 10,
-                              data: [1.67, 1.33, 0.98, 2.21]
-                        }
-                  }
-            });
-      </script>
+      <script src="app.js"></script>
 </body>
 
 </html>
