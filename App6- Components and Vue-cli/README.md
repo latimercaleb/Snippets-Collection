@@ -18,4 +18,4 @@ npm run build
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 ## Tasks
-Using simple components, seperate and add layered functionality to current code
+Using simple components, separate and add layered functionality to current code
