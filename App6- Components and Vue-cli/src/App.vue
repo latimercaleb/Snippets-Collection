@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-              <App-Header></App-Header>
+              <App-Header></App-Header><!--Component 1-->
             </div>
         </div>
         <hr>
@@ -22,9 +22,7 @@
         <hr>
         <div class="row">
             <div class="col-xs-12"> <!--Component 5-->
-                <footer>
-                    <p>All Servers are managed here</p>
-                </footer>
+             <AppFooter></AppFooter>
             </div>
         </div>
     </div>
