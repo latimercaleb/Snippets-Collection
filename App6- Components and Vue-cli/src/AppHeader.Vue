@@ -1,7 +1,6 @@
 <template>
       <header>
-          <h1>Server Status</h1>
-          <h3>Adding an extra line here</h3>
+          <h1>Server Status: Refactored with global and local components</h1>
      </header>
 </template>
 

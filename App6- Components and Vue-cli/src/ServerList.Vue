@@ -1,24 +1,20 @@
 <template>
       <div>
-
-
-      <ul class="list-group">
-          <Server class="list-group-item"
-                v-for="index in 5">
-        </Server>,
-      </ul>
-            </div>
+            <Server></Server>
+      </div>
 </template>
 
 <script>
-import Server from './Server.Vue';
-export default{
-      components:{
+import Server from './Server.vue'
+export default {
+      components: {
             'Server': Server
       }
 }
 </script>
 
 <style>
-
+span{
+      color: red;
+}
 </style>

@@ -8,12 +8,7 @@
         <hr>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
-                <ul class="list-group"> <!--Component 2-->
-                    <li class="list-group-item"
-                          v-for="index in 5">
-                        Server #{{ index }} <!--Component 3-->
-                    </li>,
-                </ul>
+                 <ServerList></ServerList> <!--Components 2& 3-->
             </div>
             <div class="col-xs-12 col-sm-6"> <!--Component 4-->
                 <App-mms></App-mms>
