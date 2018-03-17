@@ -8,7 +8,7 @@
 <script></script>
 
 <style>
-p{
-      font-style: italic;
-}
+      p {
+            font-style: italic;
+      }
 </style>
