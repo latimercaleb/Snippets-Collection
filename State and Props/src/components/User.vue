@@ -1,12 +1,13 @@
 <template>
     <div class="component">
         <h1>The User Component</h1>
-        <p>I'm an awesome User!</p>
-        <button v-on:click = "changeName">Change the Name</button>
+        <p>I'm an awesome User! Named {{parentName}}</p>
+        <button v-on:click = "changeName">Change the Name Custom Event</button>
+
         <hr>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
-                <app-user-detail :name="parentName"></app-user-detail><!--This passes parentName to the child as name-->
+                <app-user-detail :name="parentName" @resetCalled= "parentName = $event" :resetFn = "customResetName"></app-user-detail><!--This passes parentName to the child as name, also contains an event handler to listen to the child custom event-->
             </div>
             <div class="col-xs-12 col-sm-6">
                 <app-user-edit></app-user-edit>
@@ -28,6 +29,9 @@
           methods:{
                 changeName: function(){
                       this.parentName =  'latimeks'
+                },
+                customResetName(){
+                      this.parentName = "Callat"
                 }
           },
         components: {
