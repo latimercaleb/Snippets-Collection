@@ -2,15 +2,20 @@
     <div class="component">
         <h1>The User Component</h1>
         <p>I'm an awesome User! Named {{parentName}}</p>
+        <p>Age in parent {{age}}</p>
         <button v-on:click = "changeName">Change the Name Custom Event</button>
 
         <hr>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
-                <app-user-detail :name="parentName" @resetCalled= "parentName = $event" :resetFn = "customResetName"></app-user-detail><!--This passes parentName to the child as name, also contains an event handler to listen to the child custom event-->
+                <app-user-detail :name="parentName"
+                                           @resetCalled= "parentName = $event"
+                                           :resetFn = "customResetName"
+                                           :childAge="age"></app-user-detail><!--This passes parentName to the child as name, also contains an event handler to listen to the child custom event-->
             </div>
             <div class="col-xs-12 col-sm-6">
-                <app-user-edit></app-user-edit>
+                <app-user-edit :childAge = "age"
+                                         @ageWasChangedInChild= "age = $event" ></app-user-edit>
             </div>
         </div>
     </div>
@@ -23,7 +28,8 @@
     export default {
           data: function(){
                 return{
-                      parentName: 'Callat'
+                      parentName: 'Callat',
+                      age: 21
                 };
           },
           methods:{
