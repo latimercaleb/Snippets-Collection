@@ -1,3 +1,2 @@
-# Remove node_modules from pushes
-
+# Remove node_modules from  repo, should be rebuilt each time
 node_modules/
