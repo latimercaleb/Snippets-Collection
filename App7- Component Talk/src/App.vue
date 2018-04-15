@@ -3,7 +3,7 @@
         <app-header></app-header>
         <hr>
         <div class="row">
-            <servers></servers>
+            <servers @cloud="changeData"></servers>
             <app-server-details></app-server-details>
         </div>
         <hr>
@@ -23,7 +23,12 @@
             Servers,
             'app-server-details': ServerDetails,
             'app-footer': Footer
-        }
+      },
+      methods:{
+            changeData(data){ // Pick up here
+                  alert(data);
+            }
+      }
     }
 </script>
 
